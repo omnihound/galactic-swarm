@@ -1,7 +1,7 @@
 # Galactic Swarm - a Galaga-inspired arcade shooter
 # Built with the DragonRuby Game Toolkit
 
-devid=local
+devid=omnihound
 devtitle=Local Developer
 gameid=galactic-swarm
 gametitle=Galactic Swarm
