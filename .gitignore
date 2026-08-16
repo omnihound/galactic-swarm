@@ -1,0 +1,6 @@
+# Runtime-generated, not source
+data/
+errors/last.txt
+
+# macOS
+.DS_Store

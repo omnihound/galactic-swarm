@@ -1,0 +1,18 @@
+# Galactic Swarm - a Galaga-inspired arcade shooter
+# Built with the DragonRuby Game Toolkit
+
+devid=local
+devtitle=Local Developer
+gameid=galactic-swarm
+gametitle=Galactic Swarm
+version=0.1
+icon=metadata/icon.png
+
+orientation=landscape
+aspect_mode=0
+aspect_size=720
+
+# Nearest-neighbor keeps the flat-shape sprites crisp at any scale.
+scale_quality=0
+
+hd=true
