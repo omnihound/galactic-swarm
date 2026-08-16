@@ -12,13 +12,23 @@ module Player
       return
     end
 
-    dx = args.inputs.left_right_perc_with_wasd
-    p[:x] += dx * C::PLAYER_SPEED
+    # Touch: the ship follows the finger's x position directly (with a
+    # little smoothing) instead of accelerating like keyboard/analog
+    # input. A finger down also counts as "firing" -- mobile players
+    # get auto-fire for free, no on-screen button needed.
+    touch = args.inputs.finger_one
+    if touch
+      p[:x] = p[:x].lerp(touch.x, 0.4)
+    else
+      dx = args.inputs.left_right_perc_with_wasd
+      p[:x] += dx * C::PLAYER_SPEED
+    end
     p[:x] = p[:x].clamp(p[:w] / 2 + 10, C::SCREEN_W - p[:w] / 2 - 10)
 
     p[:cooldown] -= 1 if p[:cooldown] > 0
 
-    firing = args.inputs.keyboard.key_held.space ||
+    firing = touch ||
+             args.inputs.keyboard.key_held.space ||
              args.inputs.keyboard.key_held.z ||
              (args.inputs.controller_one && args.inputs.controller_one.key_held.a)
 

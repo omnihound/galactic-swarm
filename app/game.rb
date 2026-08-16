@@ -57,7 +57,8 @@ module Game
     args.inputs.keyboard.key_down.space ||
       args.inputs.keyboard.key_down.enter ||
       args.inputs.keyboard.key_down.z ||
-      (args.inputs.controller_one && args.inputs.controller_one.key_down.a)
+      (args.inputs.controller_one && args.inputs.controller_one.key_down.a) ||
+      !args.inputs.finger_one.nil?
   end
 
   def self.start_new_game(args)

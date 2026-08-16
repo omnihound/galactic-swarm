@@ -17,7 +17,7 @@ module Scenes
 
     if Kernel.tick_count.idiv(30).even?
       args.outputs.labels << {
-        x: 640, y: 250, text: 'PRESS SPACE TO START', size_px: 26,
+        x: 640, y: 250, text: 'PRESS SPACE OR TAP TO START', size_px: 26,
         anchor_x: 0.5, r: 255, g: 255, b: 255,
       }
     end
@@ -26,10 +26,14 @@ module Scenes
       x: 640, y: 170, text: 'ARROWS / WASD move    SPACE / Z shoot', size_px: 18,
       anchor_x: 0.5, r: 170, g: 170, b: 190,
     }
+    args.outputs.labels << {
+      x: 640, y: 142, text: 'or just touch and drag -- fires automatically', size_px: 16,
+      anchor_x: 0.5, r: 150, g: 150, b: 170,
+    }
 
     if args.state.high_score > 0
       args.outputs.labels << {
-        x: 640, y: 130, text: "HIGH SCORE #{args.state.high_score}", size_px: 20,
+        x: 640, y: 100, text: "HIGH SCORE #{args.state.high_score}", size_px: 20,
         anchor_x: 0.5, r: 200, g: 200, b: 255,
       }
     end
@@ -71,7 +75,7 @@ module Scenes
 
     if Kernel.tick_count.idiv(30).even?
       args.outputs.labels << {
-        x: 640, y: 290, text: 'PRESS SPACE TO RESTART', size_px: 20, anchor_x: 0.5,
+        x: 640, y: 290, text: 'PRESS SPACE OR TAP TO RESTART', size_px: 20, anchor_x: 0.5,
         r: 255, g: 255, b: 255,
       }
     end
